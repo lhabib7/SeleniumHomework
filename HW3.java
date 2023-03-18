@@ -3,6 +3,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
 //use xpath to complete this
 //goto http://practice.syntaxtechs.net/basic-first-form-demo.php (edited)
 //Syntax - Website to practice Syntax Automation Platform
@@ -21,6 +24,9 @@ public class HW3 {
         driver.manage().window().maximize();
 //        goto amazon.com
         driver.get("http://practice.syntaxtechs.net/basic-first-form-demo.php");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//a[@id='continue-with-click']")).click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         WebElement msg= driver.findElement(By.xpath("//input[contains(@name,'username')]"));
        msg.sendKeys("lhabib");
     }
